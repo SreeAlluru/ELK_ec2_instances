@@ -18,31 +18,31 @@ data "aws_ami" "Kibana" {
     values = ["Kibana"]
   }
 
-  owners = ["247548036690"] # Canonical
+  owners = ["903423243612"] # Canonical
 }
 
 
-data "aws_ami" "ElasticSearch" {
+#data "aws_ami" "ElasticSearch" {
   #most_recent = true
 
-  filter {
-    name   = "name"
-    values = ["ElasticSearch"]
-  }
+ # filter {
+  #  name   = "name"
+  #  values = ["ElasticSearch"]
+ # }
 
-  owners = ["247548036690"] # Canonical
-}
+  #owners = ["247548036690"] # Canonical
+#}
 
-data "aws_ami" "Logstash" {
+#data "aws_ami" "Logstash" {
   #most_recent = true
 
-  filter {
-    name   = "name"
-    values = ["Logstash"]
-  }
+ # filter {
+  #  name   = "name"
+   # values = ["Logstash"]
+ # }
 
-  owners = ["247548036690"] # Canonical
-}
+  #owners = ["247548036690"] # Canonical
+#x}
 
 data "aws_vpc" "elk_vpc" {
   filter {
@@ -55,6 +55,13 @@ data "aws_subnet" "public" {
   filter {
     name   = "tag:Name"
     values = ["public"]
+  }
+}
+
+data "aws_subnet" "private" {
+  filter {
+    name   = "tag:Name"
+    values = ["monitoring_subnet"]
   }
 }
 

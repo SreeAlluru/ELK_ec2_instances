@@ -31,7 +31,7 @@ resource "aws_security_group" "BastionSecurity" {
 
 resource "aws_security_group" "kibana_security" {
   name        = "kibana-elk-security"
-  description = "Allow dashboard traffic"
+  description = "Allow kibana dashboard traffic"
   vpc_id      = data.aws_vpc.elk_vpc.id
 
   ingress {
@@ -67,7 +67,7 @@ resource "aws_security_group" "kibana_security" {
 
 resource "aws_security_group" "elastic_security" {
   name        = "elastic-elk-security"
-  description = "Allow  inbound traffic"
+  description = "Allow  elasticsearchinbound traffic"
   vpc_id      = data.aws_vpc.elk_vpc.id
 
   ingress {
@@ -103,9 +103,9 @@ resource "aws_security_group" "elastic_security" {
 
 
 
-resource "aws_security_group" "logstach_secruity" {
+resource "aws_security_group" "logstach_security" {
   name        = "logstach-elk-security"
-  description = "Allow elastic inbound traffic"
+  description = "Allow new logstash inbound traffic"
   vpc_id      = data.aws_vpc.elk_vpc.id
 
   ingress {
@@ -141,7 +141,7 @@ resource "aws_security_group" "logstach_secruity" {
 
 resource "aws_security_group" "demo_security" {
   name        = "demo-elk-security"
-  description = "Allow logstach inbound traffic"
+  description = "Allow demo security inbound traffic"
   vpc_id      = data.aws_vpc.elk_vpc.id
 
   ingress {
