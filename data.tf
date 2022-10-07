@@ -65,6 +65,27 @@ data "aws_subnet" "private" {
   }
 }
 
+data "aws_subnet" "private1" {
+  filter {
+    name   = "tag:Name"
+    values = ["monitoring_subnet"]
+  }
+}
+
+data "aws_subnet" "private2" {
+  filter {
+    name   = "tag:Name"
+    values = ["monitoring_subnet"]
+  }
+}
+
+data "aws_subnet" "private3" {
+  filter {
+    name   = "tag:Name"
+    values = ["monitoring_subnet"]
+  }
+}
+
 data "aws_internet_gateway" "igw" {
   filter {
     name   = "tag:Name"
@@ -72,9 +93,9 @@ data "aws_internet_gateway" "igw" {
   }
 }
 
-#data "aws_security_group" "elk_securitygrp" {
+# data "aws_security_group" "BastionSecurity" {
 #  filter {
- #   name   = "tag:Name"
- #   values = ["elk_securitygrp"]
-  #}
-#}
+#    name   = "tag:Name"
+#     values = ["bastion_server_sg"]
+#   }
+# }
